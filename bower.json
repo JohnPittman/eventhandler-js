@@ -1,0 +1,34 @@
+{
+    "name": "eventhandler",
+    "version": "1.0.3",
+    "description": "Universal module defined event handler built for maximum speed.",
+    "homepage": "https://github.com/JohnPittman/eventhandler-js",
+    "authors": [
+        "John Pittman <johnrichadrpittman@gmail.com>"
+    ],
+    "main": "src/eventhandler.js",
+    "moduleType": [
+        "amd",
+        "globals",
+        "node"
+    ],
+    "keywords": [
+        "johnpittman",
+        "fast",
+        "optimized",
+        "umd",
+        "universal",
+        "eventhandler",
+        "eventemitter",
+        "eventdispatcher",
+        "eventsubscriber"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

@@ -7,7 +7,7 @@
         "src/",
         "dist/",
         "LICENSE",
-        "README.md"
+        "README"
     ],
     "directories": {
         "test": "test"

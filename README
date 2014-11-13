@@ -1,11 +1,6 @@
 eventhandler-js
 ===============
 
-<h1>Development Requirements</h1>
-
-nodejs
-npm install -g gulp bower
-
 <h1>Notes</h1>
 
 Universal module defined to be used with requirejs, node, commonjs, or global scoped if no module loader is used.
@@ -14,6 +9,13 @@ All files in the dist folder are minified for production use.
 All files in the src directory are the source code for development use.
 
 <h1>Use</h1>
+
+<h4>Installation</h4>
+
+node: npm install eventhandler
+bower: bower install eventhandlery
+
+<h4>How to use...</h4>
 
 var eventHandler = new EventHandler(this);
 
@@ -30,3 +32,11 @@ eventHandler.emit('bang', {
 eventHandler.removeAllEventListeners('bang');
 
 eventHandler.emit('bang');
+
+<h1>Development</h1>
+
+<h4>Requirements</h4>
+
+- nodejs
+- npm install
+- npm install -g gulp bower
