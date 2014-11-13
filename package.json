@@ -1,0 +1,45 @@
+{
+    "name": "eventhandler",
+    "version": "1.0.2",
+    "description": "Universal module defined Event Handler built for maximum speed.",
+    "main": "src/eventhandler.js",
+    "files": [
+        "src/",
+        "dist/",
+        "LICENSE",
+        "README.md"
+    ],
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "preinstall": "npm install -g gulp bower",
+        "test": "node test/eventhandlerSpec.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JohnPittman/eventhandler-js.git"
+    },
+    "keywords": [
+        "johnpittman",
+        "fast",
+        "optimized",
+        "umd",
+        "universal",
+        "eventhandler",
+        "eventemitter",
+        "eventdispatcher",
+        "eventsubscriber"
+    ],
+    "author": "John Pittman",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JohnPittman/eventhandler-js/issues"
+    },
+    "homepage": "https://github.com/JohnPittman/eventhandler-js",
+    "devDependencies": {
+        "gulp": "^3.8.10",
+        "gulp-uglify": "^1.0.1",
+        "test": "^0.6.0"
+    }
+}
