@@ -3,16 +3,16 @@ eventhandler-js
 
 <h1>Notes</h1>
 
-Universal module defined to be used with requirejs, node, commonjs, or global scoped if no module loader is used.
+Universal module defined to be used with <b>requirejs</b>, <b>node</b>, <b>commonjs</b>, or <b>global scoped</b> if no module loader is used.
 
-All files in the dist folder are minified for production use.
-All files in the src directory are the source code for development use.
+All files in the <b>dist</b> folder are minified for production use.
+All files in the <b>src</b> directory are the source code for development use.
 
 <h1>Use</h1>
 
 <h4>Installation</h4>
 
-node: npm install eventhandler
+node: npm install eventhandler<br />
 bower: bower install eventhandlery
 
 <h4>How to use...</h4>
