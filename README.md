@@ -44,3 +44,7 @@ eventHandler.emit('bang');
 <h4>Test</h4>
 
 npm test
+
+Gulp Commands
+
+- gulp build
