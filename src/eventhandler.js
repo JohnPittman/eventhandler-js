@@ -1,3 +1,5 @@
+'use strict'
+
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
@@ -23,7 +25,7 @@
     /**
      * Executes all listeners attached to the event triggered.
      * @param  {string|number} id
-     * @param  {object|string|number} data
+     * @param  {object|string|number} [data]
      */
     EventHandler.prototype.emit = function(id, data) {
         var listeners = this._events[id];
