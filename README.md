@@ -40,3 +40,7 @@ eventHandler.emit('bang');
 - nodejs
 - npm install
 - npm install -g gulp bower
+
+<h4>Test</h4>
+
+npm test
