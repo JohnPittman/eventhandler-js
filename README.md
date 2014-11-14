@@ -13,7 +13,7 @@ All files in the <b>src</b> directory are the source code for <b>development</b>
 <h4>Installation</h4>
 
 node: npm install eventhandler<br />
-bower: bower install eventhandlery
+bower: bower install eventhandler
 
 <h4>How to use...</h4>
 
