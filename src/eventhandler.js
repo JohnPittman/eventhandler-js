@@ -14,7 +14,7 @@
 
     /**
      * @constructor
-     * @param {object} owner
+     * @param {object} [owner]
      */
     function EventHandler(owner) {
         this._owner = owner || this;
@@ -23,8 +23,8 @@
 
     /**
      * Executes all listeners attached to the event triggered.
-     * @param  {string|number} id
-     * @param  {object|string|number} [data]
+     * @param  {string} id
+     * @param  {*} [data]
      */
     EventHandler.prototype.emit = function(id, data) {
         var listeners = this._events[id];
@@ -41,7 +41,7 @@
     /**
      * Adds a listener to the callback stack of the passed in event.
      * If there's no listener stack for the event, on is created.
-     * @param  {string|number} id
+     * @param  {string} id
      * @param  {function} callback
      */
     EventHandler.prototype.on = function(id, callback) {
@@ -58,7 +58,7 @@
 
     /**
      * Removes a single listener from the callback stack of the passed in event.
-     * @param  {string|number} id
+     * @param  {string} id
      * @param  {function} callback
      */
     EventHandler.prototype.removeEventListener = function(id, callback) {
@@ -75,7 +75,7 @@
 
     /**
      * Removes all listeners from the callback stack of the passed in event.
-     * @param  {string|number} id
+     * @param  {string} id
      */
     EventHandler.prototype.removeAllEventListeners = function(id) {
         var listeners = this._events[id];
@@ -95,7 +95,7 @@
 
     /**
      * Sets the scope that will be used for each listener when called.
-     * @param {object} owner
+     * @param {object} [owner
      */
     EventHandler.prototype.setOwner = function(owner) {
         this._owner = owner || this;
