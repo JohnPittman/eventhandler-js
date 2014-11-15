@@ -12,26 +12,26 @@ All files in the <b>src</b> directory are the source code for <b>development</b>
 
 <h4>Installation</h4>
 
-node: npm install eventhandler<br />
+npm: npm install eventhandler<br />
 bower: bower install eventhandler
 
 <h4>How to use...</h4>
 
-var eventHandler = new EventHandler(this);
+    var eventHandler = new EventHandler(this);
 
-eventHandler.on('bang', function(data) {
-    console.log('this = ' + this);
-    console.log(data.superhero + ' (POW!), ' + data.sidekick + ' (BOOM!)');
-});
+    eventHandler.on('bang', function(data) {
+        console.log('this = ' + this);
+        console.log(data.superhero + ' (POW!), ' + data.sidekick + ' (BOOM!)');
+    });
 
-eventHandler.emit('bang', {
-    superhero: "Batman",
-    sidekick: "Robin"
-});
+    eventHandler.emit('bang', {
+        superhero: "Batman",
+        sidekick: "Robin"
+    });
 
-eventHandler.removeAllEventListeners('bang');
+    eventHandler.removeAllEventListeners('bang');
 
-eventHandler.emit('bang');
+    eventHandler.emit('bang');
 
 <h1>Development</h1>
 
