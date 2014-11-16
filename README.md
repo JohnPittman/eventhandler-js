@@ -48,3 +48,11 @@ npm test
 Gulp Commands
 
 - gulp build
+
+<h1>Release Notes</h1>
+
+<h3>v1.0.8</h3>
+
+<h4>Bug Fixes...</h4>
+
+- Fixed sourcemap linking for minified files. The is also fixed as part of the build process to automate proper sourcemap creation and linking.
