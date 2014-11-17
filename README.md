@@ -1,5 +1,5 @@
-eventhandler-js
-===============
+eventhandler
+============
 
 <h1>Notes</h1>
 
