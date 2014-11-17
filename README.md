@@ -47,7 +47,10 @@ npm test
 
 Gulp Commands
 
-- gulp build
+Command dependency chain: test > build
+(Each process is dependent upon the previous. If one fails the build process exits.)
+
+- gulp build (Folder clean-ups, minification, source maps, renaming)
 
 <h1>Release Notes</h1>
 
