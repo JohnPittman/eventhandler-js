@@ -6,7 +6,7 @@
     "authors": ["John Pittman <johnrichadrpittman@gmail.com>"],
     "main": "dist/eventhandler.min.js",
     "moduleType": ["amd", "globals", "node"],
-    "keywords": ["fast", "optimized", "umd", "universal", "modular", "js", "module", "javascript", "eventhandler", "eventemitter", "eventdispatcher", "eventsubscriber"],
+    "keywords": ["fast", "optimized", "umd", "universal", "modular", "js", "module", "javascript", "events", "eventhandler", "eventhandling", "eventemitter", "eventdispatcher", "eventsubscriber", "subscribing"],
     "license": "MIT",
     "ignore": ["gulpfile.js", ".gitignore", "package.json", "node_modules", "bower_components", "test", "tests"]
 }
