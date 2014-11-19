@@ -1,6 +1,6 @@
 "use strict";
 
-var EventHandler = require('../src/eventhandler');
+var EventHandler = require('../src/EventHandler');
 
 describe("EventHandler", function() {
 	var eh;
