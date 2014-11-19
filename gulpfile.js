@@ -84,6 +84,8 @@ gulp.task('bumpVersion', ['build'], function(cb) {
                     } else if (bumpType === 'major') {
                         var versionTypeNum = parseInt(versionTypeValues[0]);
                         versionTypeValues[0] = ++versionTypeNum;
+                        versionTypeValues[1] = 0;
+                        versionTypeValues[2] = 0;
                     } else if (bumpType === '1.0.0') {
                         versionTypeValues[0] = 1;
                         versionTypeValues[1] = 0;

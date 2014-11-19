@@ -19,6 +19,7 @@
     function EventHandler(owner) {
         this._owner = owner || this;
         this._events = {};
+        this._subscribers;
     }
 
     /**
@@ -31,6 +32,13 @@
         if (listeners !== undefined)
             for (var i = 0, n = listeners.length; i < n; ++i)
                 listeners[i].call(this._owner, data);
+
+        var subscribers = this._subscribers;
+        if (subscribers !== undefined) {
+            for (var i = 0, n = subscribers.length; i < n; ++i) {
+                subscribers[i].emit(id, data);
+            }
+        }
     };
 
     /**
@@ -91,6 +99,33 @@
      */
     EventHandler.prototype.removeAllListeners = function() {
         this._events = {};
+    };
+
+    /**
+     * Subscribes an event handler to another.
+     * Will receive the events emitted from the one subscribed to.
+     * @param  {EventHandler} eventHandler - An event handler object to subscribe to.
+     */
+    EventHandler.prototype.subscribe = function(eventHandler) {
+        if (eventHandler._subscribers === undefined)
+            eventHandler._subscribers = [];
+        eventHandler._subscribers.push(this);
+    };
+
+    /**
+     * Unsubscribes an event handler from another.
+     * @param  {EventHandler} eventHandler - An event handler object to unsubscribe from.
+     */
+    EventHandler.prototype.unsubscribe = function(eventHandler) {
+        var subscribers = eventHandler._subscribers;
+        if (subscribers !== undefined) {
+            for (var i = 0, n = subscribers.length; i < n; ++i) {
+                if (subscribers[i] === this) {
+                    subscribers.splice(i, i + 1);
+                    break;
+                }
+            }
+        }
     };
 
     /**
