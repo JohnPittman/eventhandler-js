@@ -1,6 +1,6 @@
 {
     "name": "eventhandler",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "Universal module defined event handler built in JavaScript for maximum speed.",
     "main": "src/EventHandler.js",
     "files": ["src/", "dist/", "LICENSE", "README"],

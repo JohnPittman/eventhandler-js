@@ -133,6 +133,18 @@
     };
 
     /**
+     * Removes all event handlers that are subscribed.
+     */
+    EventHandler.prototype.removeAllSubscribers = function() {
+        var subscribers = this._subscribers;
+        if (subscribers !== undefined) {
+            for (var i = 0, n = subscribers.length; i < n; ++i) {
+                subscribers.shift();
+            }
+        }
+    };
+
+    /**
      * Sets the scope that will be used for each listener when called.
      * @param {object} [owner
      */
