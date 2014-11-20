@@ -76,12 +76,12 @@
     EventHandler.prototype.removeEventListener = function(id, callback) {
         var listeners = this._events[id];
         if (listeners !== undefined) {
-            for (var i = subscribers.length - 1; i > -1; --i) {
-                if (subscribers[i] === this)
+            for (var i = listeners.length - 1; i > -1; --i) {
+                if (listeners[i] === callback)
                     if (i > 0)
-                        subscribers[i] = subscribers[i - 1];
+                        listeners[i] = listeners[i - 1];
             }
-            subscribers.shift();
+            listeners.shift();
         }
     };
 
