@@ -71,6 +71,12 @@ bower: bower install eventhandler
 
 <h1>Release Notes</h1>
 
+<h3>v2.0.4</h3>
+
+<h4>Additional Changes...</h4>
+
+- Enhanced performance of unsubscribe and removeEventListener even though they're rarely used but in some situations where something is adding and removing callbacks every process this is huge.
+
 <h3>v2.0.0</h3>
 
 <h4>Breaking Changings...</h4>

@@ -72,12 +72,14 @@
     EventHandler.prototype.removeEventListener = function(id, callback) {
         var listeners = this._events[id];
         if (listeners !== undefined) {
-            for (var i = 0, n = listeners.length; i < n; ++i) {
-                if (listeners[i] === callback) {
-                    listeners.splice(i, i + 1);
-                    break;
+            for (var i = subscribers.length - 1; i > -1; --i) {
+                if (subscribers[i] === this) {
+                    if (i > 0) {
+                        subscribers[i] = subscribers[i - 1];
+                    }
                 }
             }
+            subscribers.shift();
         }
     };
 
@@ -119,12 +121,14 @@
     EventHandler.prototype.unsubscribe = function(eventHandler) {
         var subscribers = eventHandler._subscribers;
         if (subscribers !== undefined) {
-            for (var i = 0, n = subscribers.length; i < n; ++i) {
+            for (var i = subscribers.length - 1; i > -1; --i) {
                 if (subscribers[i] === this) {
-                    subscribers.splice(i, i + 1);
-                    break;
+                    if (i > 0) {
+                        subscribers[i] = subscribers[i - 1];
+                    }
                 }
             }
+            subscribers.shift();
         }
     };
 
