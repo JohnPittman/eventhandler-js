@@ -1,5 +1,5 @@
 /**
- * @author John Pittman <johnrichardpittman@gmail.com> 
+ * @author John Pittman <johnrichardpittman@gmail.com>
  */
 
 (function(root, factory) {
@@ -77,11 +77,9 @@
         var listeners = this._events[id];
         if (listeners !== undefined) {
             for (var i = subscribers.length - 1; i > -1; --i) {
-                if (subscribers[i] === this) {
-                    if (i > 0) {
+                if (subscribers[i] === this)
+                    if (i > 0)
                         subscribers[i] = subscribers[i - 1];
-                    }
-                }
             }
             subscribers.shift();
         }
@@ -126,11 +124,9 @@
         var subscribers = eventHandler._subscribers;
         if (subscribers !== undefined) {
             for (var i = subscribers.length - 1; i > -1; --i) {
-                if (subscribers[i] === this) {
-                    if (i > 0) {
+                if (subscribers[i] === this)
+                    if (i > 0)
                         subscribers[i] = subscribers[i - 1];
-                    }
-                }
             }
             subscribers.shift();
         }
