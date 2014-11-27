@@ -24,6 +24,7 @@
         this._owner = owner || this;
         this._events = {};
         this._subscribers;
+        this._subscriptions;
     }
 
     /**
@@ -38,11 +39,9 @@
                 listeners[i].call(this._owner, data);
 
         var subscribers = this._subscribers;
-        if (subscribers !== undefined) {
-            for (var i = 0, n = subscribers.length; i < n; ++i) {
+        if (subscribers !== undefined)
+            for (var i = 0, n = subscribers.length; i < n; ++i)
                 subscribers[i].emit(id, data);
-            }
-        }
     };
 
     /**
@@ -75,14 +74,14 @@
      */
     EventHandler.prototype.removeEventListener = function(id, callback) {
         var listeners = this._events[id];
-        if (listeners !== undefined) {
-            for (var i = listeners.length - 1; i > -1; --i) {
-                if (listeners[i] === callback)
-                    if (i > 0)
+        if (listeners !== undefined)
+            for (var i = listeners.length - 1; i > -1; --i)
+                if (listeners[i] === callback) {
+                    for (; i > 0; --i)
                         listeners[i] = listeners[i - 1];
-            }
-            listeners.shift();
-        }
+                    listeners.shift();
+                    break;
+                }
     };
 
     /**
@@ -91,11 +90,9 @@
      */
     EventHandler.prototype.removeAllEventListeners = function(id) {
         var listeners = this._events[id];
-        if (listeners !== undefined) {
-            for (var i = 0, n = listeners.length; i < n; ++i) {
+        if (listeners !== undefined)
+            for (var i = listeners.length - 1; i > -1; --i)
                 listeners.shift();
-            }
-        }
     };
 
     /**
@@ -113,7 +110,10 @@
     EventHandler.prototype.subscribe = function(eventHandler) {
         if (eventHandler._subscribers === undefined)
             eventHandler._subscribers = [];
+        if (this._subscriptions === undefined)
+            this._subscriptions = [];
         eventHandler._subscribers.push(this);
+        this._subscriptions.push(eventHandler);
     };
 
     /**
@@ -122,13 +122,27 @@
      */
     EventHandler.prototype.unsubscribe = function(eventHandler) {
         var subscribers = eventHandler._subscribers;
-        if (subscribers !== undefined) {
-            for (var i = subscribers.length - 1; i > -1; --i) {
-                if (subscribers[i] === this)
-                    if (i > 0)
-                        subscribers[i] = subscribers[i - 1];
+        var subscriptions = this._subscriptions;
+
+        // Remove this event handler from the specified event handler it's subscribed to.
+        var owner = this._owner;
+        for (var i = subscribers.length - 1; i > -1; --i) {
+            if (subscribers[i] === owner) {
+                for (; i > 0; --i)
+                    subscribers[i] = subscribers[i - 1];
+                subscribers.shift();
+                break;
             }
-            subscribers.shift();
+        }
+
+        // Remove subscription reference of event handler subscribed to.
+        for (i = subscriptions.length - 1; i > -1; --i) {
+            if (subscriptions[i] === eventHandler) {
+                for (; i > 0; --i)
+                    subscriptions[i] = subscriptions[i - 1];
+                subscriptions.shift();
+                break;
+            }
         }
     };
 
@@ -138,10 +152,21 @@
     EventHandler.prototype.removeAllSubscribers = function() {
         var subscribers = this._subscribers;
         if (subscribers !== undefined) {
-            for (var i = 0, n = subscribers.length; i < n; ++i) {
-                subscribers.shift();
-            }
+            var owner = this._owner;
+            for (var i = subscribers.length - 1; i > -1; --i)
+                subscribers[i].unsubscribe(owner);
         }
+    };
+
+    /**
+     * Removes all references to other event handlers subscribed to.
+     * Removes itself as a subscriber from each event handler subscribed to.
+     */
+    EventHandler.prototype.removeAllSubscriptions = function() {
+        var subscriptions = this._subscriptions;
+        if (subscriptions !== undefined)
+            for (var i = subscriptions.length - 1; i > -1; --i)
+                this.unsubscribe(subscriptions[i]);
     };
 
     /**
